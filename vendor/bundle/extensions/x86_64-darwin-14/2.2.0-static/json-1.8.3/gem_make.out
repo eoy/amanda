@@ -1,0 +1,9 @@
+/Users/eoy/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20150920-8969-1hlc7y6.rb extconf.rb --with-pg-include=/Applications/Postgres.app/Contents/Versions/9.3/include
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
