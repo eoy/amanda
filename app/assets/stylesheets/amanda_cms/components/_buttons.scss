@@ -1,0 +1,223 @@
+$button-base-color: #ccc;
+$button-text-color: #fff;
+$button-shadow-color: #d4d2d1;
+$button-disabled-color: #f4f4f4;
+
+.button {
+  @include background-image(linear-gradient(0deg, #e1ddde 0%, #f0efee 100%));
+  @include border-bottom-radius(0px);
+  @include border-top-radius(0px);
+  @include transition(none !important);
+  @include user-select(none);
+  background-color: $button-base-color;
+  box-shadow: inset 0px -1px 1px rgba($button-shadow-color, 0.3);
+  color: $black;
+  font-size: 13px;
+  line-height: 1.6em;
+  padding: 14px 23px;
+  position: relative;
+  text-align: center;
+  .hero &,
+  &--no-margin {
+    margin-bottom: 0;
+  }
+  &:hover,
+  &:focus {
+    @include background-image(linear-gradient(0deg, #ececea 0%, #f7f7f6 100%));
+    background-color: $button-base-color;
+    box-shadow: inset 0px -1px 1px rgba($button-shadow-color, 0.1);
+    color: $button-text-color;
+  }
+  &:active {
+  }
+  // Define your styles in this manner
+  &--icon-right,
+  &--icon-left {
+    i {
+      padding: 14px 20px;
+      position: absolute;
+      top: 0;
+      display: inline;
+      font-size: 1.5em;
+      height: 100%;
+      margin: 0;
+    }
+  }
+  &--icon-left {
+    padding: 14px 23px 14px 45px;
+    i {
+      left: 0;
+    }
+  }
+  &--icon-right {
+    padding: 14px 45px 14px 23px;
+    i {
+      right: 0;
+    }
+  }
+  &--tiny {
+    color: $button-text-color;
+    font-size: 10px;
+    padding: 5px 20px;
+    &.button--icon-left {
+      padding: 10px 20px 10px 35px;
+    }
+    &.button--icon-right {
+      padding: 10px 35px 10px 20px;
+    }
+    &.button--icon-right,
+    &.button--icon-left {
+      i {
+        margin: 0;
+        font-size: 1.4em;
+        padding: 10px 15px;
+      }
+      &.button--expand,
+      &.button--expanded {
+        padding: 10px 20px;
+      }
+    }
+    &:hover,
+    &:focus {
+      i {
+        color: $black;
+      }
+    }
+  }
+  &--small {
+    color: $button-text-color;
+    font-size: 11px;
+    padding: 12px 20px;
+    &.button--icon-left {
+      padding: 12px 20px 12px 35px;
+    }
+    &.button--icon-right {
+      padding: 12px 35px 12px 20px;
+    }
+    &.button--icon-right,
+    &.button--icon-left {
+      i {
+        margin: 0;
+        font-size: 1.6em;
+        padding: 12px 15px;
+      }
+      &.button--expand,
+      &.button--expanded {
+        padding: 12px 20px;
+      }
+    }
+    &:hover,
+    &:focus {
+      i {
+        color: $black;
+      }
+    }
+  }
+  &--medium {
+    padding: 16px 50px;
+    &.button--icon-left {
+      padding: 16px 30px 16px 50px;
+    }
+    &.button--icon-right {
+      padding: 16px 50px 16px 30px;
+    }
+    &.button--icon-right,
+    &.button--icon-left {
+      i {
+        margin: 0;
+        font-size: 2.0em;
+        padding: 14px 20px;
+      }
+      &.button--expand,
+      &.button--expanded {
+        padding: 16px 50px;
+      }
+    }
+  }
+  &--large {
+    padding: 23px 80px;
+    &.button--icon-left {
+      padding: 23px 30px 23px 55px;
+    }
+    &.button--icon-right {
+      padding: 23px 55px 23px 30px;
+    }
+    &.button--icon-right,
+    &.button--icon-left {
+      i {
+        margin: 0;
+        font-size: 2.5em;
+        padding: 16px 20px;
+      }
+      &.button--expand,
+      &.button--expanded {
+        padding: 23px 80px;
+      }
+    }
+  }
+  &--disabled,
+  &[disabled] {
+    @include background-image(linear-gradient(0deg, #f0efef 0%, #f9f9f9 100%));
+    box-shadow: inset 0px -1px 1px rgba($button-shadow-color, .2) !important;
+    color: $button-disabled-color !important;
+    cursor: not-allowed !important;
+    &:hover,
+    &:focus {
+      @include background-image(linear-gradient(0deg, #f0efef 0%, #f9f9f9 100%));
+    }
+  }
+  &--flat {
+    @include background-image(linear-gradient(0deg, transparent 0%, transparent 100%));
+    box-shadow: none !important;
+    &:hover,
+    &:focus {
+      @include background-image(linear-gradient(0deg, transparent 0%, transparent 100%));
+    }
+    &:active {
+    }
+    &.button--disabled,
+    &[disabled] {
+      background: darken($button-base-color, 10%) !important;
+      border: 0 !important;
+      color: $button-disabled-color !important;
+      i {
+        color: inherit !important;
+      }
+    }
+  }
+  &--transparent {
+    background: none !important;
+    box-shadow: none !important;
+    &.button--icon-left {
+      padding-left: 30px;
+      i {
+        padding-left: 0;
+      }
+    }
+  }
+  &--expand,
+  &--expanded {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.button-group, .button-groups {
+  li {
+    .button {
+      max-width: 100%;
+      @include border-left-radius(0px);
+      @include border-right-radius(0px);
+    }
+    &:first-child {
+      .button {
+        @include border-left-radius(2px);
+      }
+    }
+    &:last-child {
+      .button {
+        @include border-right-radius(2px);
+      }
+    }
+  }
+}

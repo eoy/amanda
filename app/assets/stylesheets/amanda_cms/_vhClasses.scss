@@ -1,0 +1,62 @@
+// VH classes
+// This is a function to build all vh-* classes, so they can be used in the html.
+// Example: vh-90 is 90% window height
+@for $i from 1 through 100 {
+  .vh-#{$i}, %vh-#{$i} {height:#{$i}vh;}
+}
+.full-height {
+  @extend %vh-100;
+}
+
+/**
+   * iPad with portrait orientation.
+   */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+    .full-height {
+      height: 1024px;
+    }
+  }
+
+  /**
+   * iPad with landscape orientation.
+   */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+    .full-height {
+      height: 768px;
+    }
+  }
+
+  /**
+   * iPhone 5
+   * You can also target devices with aspect ratio.
+   */
+  @media screen and (device-aspect-ratio: 40/71) {
+    .full-height {
+      height: 500px;
+    }
+  }
+
+.half-height {
+  @extend %vh-50;
+  /**
+   * iPad with portrait orientation.
+   */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+    height: 512px;
+  }
+
+  /**
+   * iPad with landscape orientation.
+   */
+  @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+    height: 384px;
+  }
+
+  /**
+   * iPhone 5
+   * You can also target devices with aspect ratio.
+   */
+  @media screen and (device-aspect-ratio: 40/71) {
+    height: 250px;
+  }
+}

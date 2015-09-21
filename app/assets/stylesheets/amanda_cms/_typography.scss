@@ -1,0 +1,211 @@
+.karla,
+%karla {
+  font-family: 'Karla', $helvetica;
+  font-weight: 400;
+  &-italic {
+    font-family: 'Karla', $helvetica;
+    font-weight: 400;
+    font-style: italic;
+  }
+  &-bold {
+    font-family: 'Karla', $helvetica;
+    font-weight: 700;
+    &-italic {
+      font-family: 'Karla', $helvetica;
+      font-weight: 700;
+      font-style: italic;
+    }
+  }
+}
+
+.basefont,
+%basefont {
+  @extend %karla;
+}
+
+.upcase,
+.uppercase,
+%uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase,
+%lowercase {
+  text-transform: lowercase;
+}
+
+
+.helvetica,
+%helvetica {
+  font-family: $helvetica;
+}
+
+.placeholder,
+%placeholder {
+  font-family: $helvetica;
+}
+
+.heading-1 {
+  color: inherit;
+  font-size: 24px;
+  line-height: 1.3em;
+  font-weight: lighter;
+  letter-spacing: -.5px;
+  margin-bottom: 30px;
+}
+
+.heading-2 {
+  font-size: 38px;
+  line-height: 48px;
+}
+
+.heading-3 {
+  font-size: 25px;
+  line-height: 28px;
+}
+
+.heading-5 {
+
+}
+
+p.no-margin {
+  margin-bottom: 0;
+}
+
+
+blockquote,
+.blockquote,
+%blockquote {
+  border: none;
+  background-color: $white;
+  @extend .padding;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $grey-medium;
+  }
+  p {
+    font-size: 15px;
+    color: $grey-medium;
+    position: relative;
+    padding-left: $column-gutter;
+    margin: 0;
+    &:before {
+      content: '“';
+      font-size: 60px;
+      position: absolute;
+      left: 0;
+      top: -21px;
+      vertical-align: top;
+    }
+  }
+  cite {
+    font-size: 12px;
+    color: $grey;
+    font-style: normal;
+    padding-left: $column-gutter;
+    padding-top: 15px;
+  }
+}
+
+ol {
+  padding: 0;
+  margin-bottom: 30px;
+  li {
+    position: relative;
+    color: $grey-medium;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+}
+
+
+ul {
+  &.bullet {
+    padding: 0;
+    margin-bottom: 30px;
+    li {
+      position: relative;
+      color: $grey-medium;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 5px;
+    }
+  }
+  &.arrow {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    li {
+      position: relative;
+      padding-left: 25px;
+      color: $grey-medium;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 5px;
+      &:before {
+        line-height: 20px;
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // @extend .ion;
+        content: "missing";//$ionicon-var-ios-arrow-right;
+      }
+    }
+  }
+  &.check {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    li {
+      position: relative;
+      padding-left: 25px;
+      color: $grey-medium;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 5px;
+      &:before {
+        line-height: 20px;
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // @extend .ion;
+        // content: $ionicon-var-checkmark-round;
+        content: "missing";
+        color: #b4b4b4;
+      }
+      @include mq(print) {
+        font-size: 12px;
+      }
+    }
+    &--large {
+      li {
+        padding-left: 25px;
+        font-size: 17px;
+        line-height: 21px;
+        margin-bottom: 5px;
+        &:before {
+          top: 3px;
+          color: #b4b4b4;
+        }
+      }
+    }
+    &--small {
+      li {
+        padding-left: 25px;
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 3px;
+        &:before {
+          top: 0;
+        }
+      }
+    }
+  }
+}
