@@ -1,0 +1,12 @@
+<ul>
+  <li>
+    <strong><%= entry.title.humanize %></strong>
+    <%= link_to "Edit", edit_content_entry_path(entry) %>
+    <% entry.payload.each do |k,v| %>
+      <p><small class="upcase"><%= k %></small>: <%= v %></p>
+    <% end %>
+    <% if entry.entries.size %>
+      <%= render partial: 'entry', collection: entry.entries %>
+    <% end %>
+  </li>
+</ul>

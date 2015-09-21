@@ -8,7 +8,20 @@
 </head>
 <body>
 
-<%= yield %>
+<aside class="medium-3 columns">
+  <nav class="side-nav">
+    <ul class="nostyle">
+      <% AmandaCms.configuration.entry_types.each do |type| %>
+        <li><%= link_to type.pluralize, entries_path(type.tableize) %></li>
+      <% end %>
+      <li><%= link_to "New entry-type", new_entry_group_path, class: 'button button--tiny button--flat' %></li>
+    </ul>
+  </nav>
+</aside>
+
+<main class="medium-9 columns">
+  <%= yield %>
+</main>
 
 </body>
 </html>

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="medium-10 columns">
+    <h2>Listing <%= params[:entry_type].humanize %>:</h2>
+
+    <% if @entries.any? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <% @entries.first.payload.each do |k,v| %>
+              <th><%= k.humanize %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @entries.without_parents.each do |entry| %>
+            <tr>
+              <td><%= entry.title.humanize %></td>
+              <% entry.payload.each do |k,v| %>
+                <td><%= v %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>No entries found :(</p>
+    <% end %>
+
+
+    <% if @entries.any? %>
+      <%= render partial: 'entry', collection: @entries %>
+    <% else %>
+      <p>No entries found :(</p>
+    <% end %>
+
+    <br>
+    <%= link_to "Add new", new_content_entry_path, class: 'button button--flat button--tiny' %>
+  </div>
+</div>

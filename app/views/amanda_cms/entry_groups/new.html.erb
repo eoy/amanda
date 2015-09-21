@@ -1,0 +1,7 @@
+<%= simple_form_for @entry_group do |f| %>
+  <%= f.input :title %>
+  <%= f.input :fields, as: :text %>
+  <%= f.submit %>
+<% end %>
+
+<%= react_component('FieldBuilder') %>

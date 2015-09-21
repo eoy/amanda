@@ -1,7 +1,6 @@
 module AmandaCms
   class Repeater < ActiveRecord::Base
-    belongs_to :entry
-    has_one :parent, class_name: "AmandaCms::Entry", foreign_key: :id
-    has_many :entries
+    belongs_to :source_entry, class_name: "AmandaCms::Entry", foreign_key: :source_entry_id
+    belongs_to :dist_entry, class_name: "AmandaCms::Entry", foreign_key: :entry_id
   end
 end
