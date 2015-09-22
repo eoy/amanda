@@ -8,7 +8,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
 
-    b.use :label #, class: 'col-3'
+    b.use :label
 
     b.wrapper tag: 'div', class: 'input' do |ba|
       ba.use :hint,  wrap_with: { tag: 'div', class: 'text-muted hint' }

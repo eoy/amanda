@@ -4,8 +4,11 @@ module AmandaCms
 
     included do
       def set_entry_type(entry)
-        entry.repeater.entry_type = self.class
-        entry.repeater.save
+      # TODO: Fix this to work properly
+      #
+      # entry.repeater.entry_type = self.class
+      # entry.repeater.save
+        return true
       end
 
     end
@@ -21,10 +24,6 @@ module AmandaCms
 
         scope :without_parents, -> { includes(:repeaters).where(amanda_cms_repeaters: {id: nil}) }
         scope :with_children, -> { joins(:entries) }
-
-        def self.define_entry_type(class_name)
-          klass = Object.const_set(class_name.classify, Class.new(AmandaCms::Entry))
-        end
 
         def self.content_attr(attr_name, attr_type = :string)
           content_attributes[attr_name] = attr_type
@@ -47,11 +46,9 @@ module AmandaCms
     end
   end
 
-   module LocalInstanceMethods
-      def testing
-        puts "testing"
-      end
-   end
+  module LocalInstanceMethods
+    # Nothing here
+  end
 end
 
 ActiveRecord::Base.send :include, AmandaCms::ActsAsEntry

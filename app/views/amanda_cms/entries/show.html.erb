@@ -3,3 +3,7 @@
 <% @entry.payload.each do |k,v| %>
   <p><%= k.humanize %>: <%= v %></p>
 <% end %>
+
+<% @entry.entries.each do |e| %>
+  <%= e %>
+<% end %>

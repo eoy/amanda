@@ -6,16 +6,16 @@ module AmandaCms
     #attr_accessor :fields
 
     def define_entry_type(class_name=self.title, fields=self.fields)
-      # Programatically define new class based on title
+      # Programatically define a new class based on the title
       klass = Class.new(AmandaCms::Entry) do
         acts_as_entry
       end
 
-      # Initialize new class for rails
+      # Initialize the new class for Rails
       Object.const_set(class_name.classify, klass)
       k = klass.new
 
-      # Loop through fields and define methods
+      # Loop through the fields json attribute and define methods on the class
       fields.each do |field|
         klass.content_attr(field.keys.first.to_s, field.values.first.to_s)
       end
