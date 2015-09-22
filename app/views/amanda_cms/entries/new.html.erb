@@ -3,7 +3,11 @@
   <%= f.input :title %>
 
   <% @entry.class.content_attributes.each do |attr_name, attr_type| %>
-    <%= f.input attr_name, as: attr_type %>
+    <% if attr_type == "association" %>
+      <%= f.association :entries, collection: Object.const_get(attr_name.classify).all %>
+    <% else %>
+      <%= f.input attr_name, as: attr_type %>
+    <% end %>
   <% end %>
 
   <%= f.submit %>

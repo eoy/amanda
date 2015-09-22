@@ -9,6 +9,13 @@ window.FieldBuilder = React.createClass
 
   titleChanged: (event) ->
     @setState(title: event.target.value)
+    console.log @state.title
+    json_data = JSON.stringify([
+      {
+        "#{@state.title}": @state.type
+      }
+    ])
+    $('#entry_group_fields').val json_data
 
   typeChanged: (event) ->
     @setState(type: event.target.value)
@@ -28,9 +35,8 @@ window.FieldBuilder = React.createClass
   render: ->
     DOM.form
       className: "form-horizontal",
-      onChange: @formSubmitted,
-      onBlur: @formSubmitted,
-      onSubmit: @formSubmitted,
+      #onBlur: @formSubmitted,
+      #onSubmit: @formSubmitted,
       DOM.fieldset null,
         DOM.legend null, "Fields"
         DOM.div

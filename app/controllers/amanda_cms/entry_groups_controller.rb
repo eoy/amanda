@@ -26,7 +26,7 @@ module AmandaCms
     private
 
     def entry_group_params
-      params.require(:entry_group).permit(:title)
+      params.require(:entry_group).permit(:title, :fields)
     end
   end
 end
